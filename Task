@@ -1,0 +1,37 @@
+numb1 = int(input())
+numb2 = int(input())
+numb3 = int(input())
+numb4 = int(input())
+numb5 = int(input())
+numb6 = int(input())
+numb7 = int(input())
+numb8 = int(input())
+numb9 = int(input())
+numb10 = int(input())
+numb11 = int(input())
+numb12 = int(input())
+pairs = [numb1, numb2, numb3, numb4, numb5, numb6, numb7, numb8, numb9, numb10, numb11, numb12]
+
+max1 = []
+min1 = []
+for a, b in pairs:
+    mx = max(a, b)
+    mn = min(a, b)
+    max1.append(mx)
+    min1.append(mn)
+
+total = sum(max1)
+
+if total % 5 != 0:
+    print(total)
+else:
+    diffs = []
+    for i in range(6):
+        if max1[i] % 5 != min1[i] % 5:
+            diffs.append(max1[i] - min1[i])
+
+    if diffs:
+        total -= min(diffs)
+        print(total if total % 5 != 0 else 0)
+    else:
+        print(0)
